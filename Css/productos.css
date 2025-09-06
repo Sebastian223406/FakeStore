@@ -1,0 +1,19 @@
+/* Controles + Productos */
+.controles{
+  display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px;
+}
+.controles input, .controles select{
+  padding:8px 10px; border:1px solid var(--border); border-radius:10px; background:#fff;
+}
+
+.productos{
+  display: grid; gap:16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.producto{
+  background:#fff; border:1px solid var(--border); border-radius:14px;
+  padding:14px; text-align:center;
+}
+.producto img{ max-width:110px; height:auto; }
+.producto h3{ font-size:14px; font-weight:700; }
+.producto p{ margin:6px 0; }

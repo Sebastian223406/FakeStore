@@ -1,0 +1,30 @@
+/* Hero */
+.hero{
+  background: radial-gradient(1000px 400px at 20% -20%, #dbeafe 0, transparent 60%),
+              radial-gradient(1000px 400px at 120% 120%, #e9d5ff 0, transparent 60%),
+              var(--card);
+  border:1px solid var(--border);
+  padding:36px; border-radius:20px; text-align:center; margin-top:16px;
+}
+.hero h1{ font-size: clamp(28px, 5vw, 48px); margin:0 0 8px; }
+.hero h1 span{ color:var(--brand);}
+.hero .sub{ color:var(--muted); margin:0 0 16px; }
+.features{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:16px; }
+.features > div{ background:#f3f4f6; padding:8px 12px; border-radius:999px; }
+
+/* Info grid */
+.info-grid{   
+  margin-top:24px;
+  display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:16px;
+  padding:18px;
+}
+.socials{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+.socials a{  
+  text-decoration:none; padding:6px 10px; border-radius:8px; background:#f1f5f9; color:#111;
+}
+.socials a:hover{ background:#e2e8f0; }
+.card h2{ margin:0 0 8px; font-size:20px; }

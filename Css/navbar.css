@@ -1,0 +1,33 @@
+/* Topbar / Navbar */
+.topbar{
+  position: sticky; top:0; z-index:50;
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  padding:10px 16px;
+  display:flex; align-items:center; gap:16px;
+}
+.brand{
+  font-weight:800; cursor:pointer;
+}
+.main-nav{ display:flex; gap:12px; flex:1; }
+.main-nav .nav-link{
+  color:var(--muted); text-decoration:none; padding:6px 10px; border-radius:8px;
+}
+.main-nav .nav-link.active, .main-nav .nav-link:hover{
+  color:var(--brand); background:#eaf1ff;
+}
+.user-area{ display:flex; gap:8px; }
+
+/* Buttons (generales, aplican también a navbar si hay) */
+.btn{
+  background:var(--brand); color:#fff; border:none; padding:8px 12px; border-radius:10px;
+  cursor:pointer; font-weight:600;
+}
+.btn:hover{ background:var(--brand-2); }
+.btn.ghost{
+  background:#eef2ff; color:var(--brand);
+}
+.btn.ghost:hover{
+  background:#e0e7ff;
+}
+.btn.grande{ padding:12px 18px; font-size:1rem; border-radius:14px; }

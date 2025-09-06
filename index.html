@@ -1,0 +1,198 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>FakeStore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS global / root -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Secciones -->
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/productos.css" />
+  <link rel="stylesheet" href="css/carrito.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/registro.css" />
+</head>
+<body>
+
+  <!-- Topbar / Navbar -->
+  <header class="topbar">
+    <div class="brand" data-section="home">🦈 FakeStore</div>
+    <nav class="main-nav">
+      <a href="#" data-section="home" class="nav-link active">Inicio</a>
+      <a href="#" data-section="productos-seccion" class="nav-link">Productos</a>
+      <a href="#" data-section="carrito-seccion" class="nav-link">Carrito</a>
+    </nav>
+    <div id="user-area" class="user-area">
+      <button id="btn-login" class="btn ghost">Iniciar sesión</button>
+      <button id="btn-register" class="btn">Registrarse</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="seccion activa">
+      <div class="hero">
+        <h1>🛍️ Bienvenido a <span>FakeStore</span></h1>
+        <p class="sub">
+          Calidad, precios justos y envíos rápidos. Todo en un solo lugar. 💨✨
+        </p>
+        <div class="features">
+          <div>✅ Productos verificados</div>
+          <div>💳 Pagos seguros</div>
+          <div>📦 Envíos en 24-48h</div>
+        </div>
+        <button id="cta-comprar" class="btn grande">Empezar a comprar</button>
+      </div>
+
+      <section class="info-grid">
+        <div class="card">
+          <h2>📣 Síguenos</h2>
+          <p>Conoce ofertas y novedades:</p>
+          <div class="socials">
+            <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>ℹ️ Acerca de nosotros</h2>
+          <p>
+            En FakeStore creemos en una experiencia simple y confiable:
+            selección cuidada, buenos precios y soporte humano. 😉
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>📞 Contáctanos</h2>
+          <p>¿Dudas o soporte? Escríbenos por WhatsApp.</p>
+          <!-- Cambia el número por el tuyo: 57 + número en Colombia -->
+          <a class="btn" id="btn-whatsapp" href="https://wa.me/570000000000" target="_blank" rel="noopener">
+            WhatsApp
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos-seccion" class="seccion">
+      <!-- Controles -->
+      <section id="controles" class="controles">
+        <input type="text" id="busqueda" placeholder="Buscar producto..." />
+        <select id="filtroCategoria">
+          <option value="all">Todas las categorías</option>
+          <option value="men's clothing">Ropa de hombre</option>
+          <option value="women's clothing">Ropa de mujer</option>
+          <option value="jewelery">Joyería</option>
+          <option value="electronics">Electrónica</option>
+        </select>
+        <select id="ordenar">
+          <option value="default">Ordenar por</option>
+          <option value="asc">Precio: menor a mayor</option>
+          <option value="desc">Precio: mayor a menor</option>
+          <option value="az">Nombre A-Z</option>
+          <option value="za">Nombre Z-A</option>
+        </select>
+      </section>
+
+      <div id="productos" class="productos"></div>
+    </section>
+
+    <!-- CARRITO -->
+    <section id="carrito-seccion" class="seccion">
+      <h2>Tu carrito</h2>
+      <div id="carrito" class="carrito"></div>
+      <div class="carrito-acciones">
+        <button id="btn-vaciar" class="btn ghost">Vaciar carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modales Auth -->
+  <div id="overlay" class="overlay oculto">
+    
+    <!-- LOGIN -->
+    <div class="modal" id="login-modal">
+      <h3>Iniciar sesión</h3>
+      <form id="login-form">
+        <label>Email</label>
+        <input type="email" id="login-email" required />
+        
+        <label>Contraseña</label>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <input type="password" id="login-pass" required />
+          <button type="button" class="toggle-password">👁️</button>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn">Entrar</button>
+          <button type="button" class="btn ghost" id="login-cerrar">Cancelar</button>
+        </div>
+      </form>
+      <p>¿No tienes cuenta? <a href="#" id="linkRegister">Regístrate</a></p>
+    </div>
+
+    <!-- REGISTRO -->
+    <div class="modal" id="register-modal">
+      <h3>Registro</h3>
+      <form id="register-form">
+        <label>Nombre de usuario:</label>
+        <input type="text" id="username" required>
+
+        <label>Email:</label>
+        <input type="email" id="emailRegistro" required>
+
+        <label>Contraseña:</label>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <input type="password" id="password" required>
+          <button type="button" class="toggle-password">👁️</button>
+        </div>
+        
+        <ul id="reglasPassword">
+          <li id="longitud">❌ Mínimo 8 caracteres</li>
+          <li id="mayuscula">❌ Al menos una mayúscula</li>
+          <li id="numero">❌ Al menos un número</li>
+        </ul>
+
+        <label>Confirmar contraseña:</label>
+        <div style="display:flex;align-items:center;gap:5px;">
+          <input type="password" id="confirmPassword" required>
+          <button type="button" class="toggle-password">👁️</button>
+        </div>
+        <p id="mensajeCoincidencia"></p> 
+
+        <label>
+          <input type="checkbox" id="terminos"> Acepto términos y condiciones
+        </label>
+        <label>
+          <input type="checkbox" id="noticias"> Deseo recibir noticias por email
+        </label>
+
+        <div class="modal-actions">
+          <button type="submit" id="btnRegistro" disabled class="btn">Registrarme</button>
+          <button type="button" class="btn ghost" id="register-cerrar">Cancelar</button>
+        </div>
+      </form>
+      <p>¿Ya tienes cuenta? <a href="#" id="linkLogin">Inicia sesión</a></p>
+    </div>
+
+  </div>
+
+<script src="js/utils/storage.js"></script>
+<script src="js/utils/ui.js"></script>
+
+<script src="js/components/navbar.js"></script>
+<script src="js/components/home.js"></script>
+<script src="js/components/productos.js"></script>
+<script src="js/components/carrito.js"></script>
+<script src="js/components/login.js"></script>
+<script src="js/components/registro.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

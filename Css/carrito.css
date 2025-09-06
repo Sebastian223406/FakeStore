@@ -1,0 +1,9 @@
+/* Carrito */
+.carrito{
+  background:#fff; border:1px solid var(--border); border-radius:14px; padding:14px;
+}
+.carrito p{ display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.carrito button{
+  background:var(--danger);
+}
+.carrito-acciones{ margin-top:10px; display:flex; gap:8px; }
