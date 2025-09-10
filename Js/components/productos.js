@@ -8,10 +8,12 @@ async function cargarProductos() {
   } catch (error) {
     console.error("Error cargando productos", error);
   }
+
 }
 
 function mostrarProductos(lista) {
   const contenedor = document.getElementById("productos");
+
   contenedor.innerHTML = "";
 
   lista.forEach(prod => {
